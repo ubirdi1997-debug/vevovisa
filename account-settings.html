@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="usafe – Account Settings. Manage your account details, security, and preferences.">
+  <title>usafe – Account Settings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .settings-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--light-grey);
+      margin-bottom: 24px;
+    }
+    .settings-tab {
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark-grey);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .settings-tab.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+    .settings-section { display: none; }
+    .settings-section.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="usafe-logo">
+        <svg class="usafe-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+          <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+          <path d="M22 11 L32 17.5 L32 27 C32 32 22 37 22 37 C22 37 12 32 12 27 L12 17.5 Z" fill="#c8a84b" opacity="0.3"/>
+          <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+        </svg>
+        <span class="usafe-logo-text">
+          <span class="brand-name">usafe</span>
+          <span class="brand-sub">Secure Migration Portal</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <span style="color:rgba(255,255,255,0.65); font-size:0.83rem;">Welcome, <strong style="color:#fff;">John Smith</strong></span>
+        <a href="#">Help</a>
+        <a href="index.html" class="btn-logout">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="new-application.html">New Application</a></li>
+        <li><a href="upload-documents.html">Upload Documents</a></li>
+        <li><a href="messages.html">Messages <span style="background:#c8a84b;color:#00205b;border-radius:10px;padding:1px 7px;font-size:0.72rem;font-weight:700;margin-left:4px;">3</span></a></li>
+        <li><a href="account-settings.html" class="active">Account Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-menu">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="dashboard.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><rect x="1" y="1" width="7" height="7" rx="1"/><rect x="10" y="1" width="7" height="7" rx="1"/><rect x="1" y="10" width="7" height="7" rx="1"/><rect x="10" y="10" width="7" height="7" rx="1"/></svg>
+            Dashboard</a></li>
+          <li><a href="applications.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 2h9l3 3v11H3V2zm6 0v4h4"/></svg>
+            My Applications</a></li>
+          <li><a href="new-application.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="9" r="8"/><path d="M9 5v8M5 9h8" stroke="white" stroke-width="1.5"/></svg>
+            New Application</a></li>
+          <li><a href="upload-documents.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 14h12v2H3zM9 2l5 6H11v4H7V8H5z"/></svg>
+            Upload Documents</a></li>
+          <li><a href="messages.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M2 3h14v10l-7 3-7-3V3z"/></svg>
+            Messages</a></li>
+          <li><a href="account-settings.html" class="active">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="7" r="4"/><path d="M1 16c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Account Settings</a></li>
+        </ul>
+      </div>
+
+      <!-- Account summary -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card-body" style="padding:16px; text-align:center;">
+          <div style="width:60px; height:60px; background:var(--navy); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:700; margin:0 auto 10px;">JS</div>
+          <p style="font-weight:700; font-size:0.95rem; color:var(--navy);">John Smith</p>
+          <p style="font-size:0.78rem; color:var(--dark-grey);">john.smith@email.com</p>
+          <p style="font-size:0.75rem; color:var(--dark-grey); margin-top:4px;">Member since Dec 2024</p>
+          <span class="badge badge-approved" style="margin-top:8px; display:inline-block;">Verified</span>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main-content">
+
+      <div class="breadcrumb">
+        <a href="dashboard.html">Home</a>
+        <span class="sep">›</span>
+        <span class="current">Account Settings</span>
+      </div>
+
+      <div class="page-title">
+        <h1>Account Settings</h1>
+        <p>Manage your personal details, security credentials, notifications, and linked accounts.</p>
+      </div>
+
+      <!-- Settings Tabs -->
+      <div class="card">
+        <div class="card-body">
+
+          <div class="settings-tabs">
+            <div class="settings-tab active" onclick="switchSettingsTab('personal', this)">Personal Details</div>
+            <div class="settings-tab" onclick="switchSettingsTab('security', this)">Password &amp; Security</div>
+            <div class="settings-tab" onclick="switchSettingsTab('notifications', this)">Notifications</div>
+            <div class="settings-tab" onclick="switchSettingsTab('linked', this)">Linked Accounts</div>
+          </div>
+
+          <!-- Personal Details -->
+          <div id="section-personal" class="settings-section active">
+            <div class="alert alert-success" style="margin-bottom:20px; display:none;" id="save-success">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm3.5 5.5-4 4a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47 3.47-3.47a.75.75 0 1 1 1.06 1.06Z"/></svg>
+              <span>Your personal details have been updated successfully.</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:700px;">
+              <div class="form-group">
+                <label for="given-name">Given Name(s) <span class="required">*</span></label>
+                <input type="text" id="given-name" class="form-control" value="John">
+              </div>
+              <div class="form-group">
+                <label for="family-name">Family Name <span class="required">*</span></label>
+                <input type="text" id="family-name" class="form-control" value="Smith">
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="dob" class="form-control" value="1985-06-15">
+              </div>
+              <div class="form-group">
+                <label for="passport-no">Passport Number</label>
+                <input type="text" id="passport-no" class="form-control" value="PA123456">
+              </div>
+              <div class="form-group">
+                <label for="nationality">Nationality <span class="required">*</span></label>
+                <select id="nationality" class="form-control">
+                  <option selected>United Kingdom</option>
+                  <option>India</option>
+                  <option>China</option>
+                  <option>United States</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" class="form-control" value="+44 7900 123456">
+              </div>
+            </div>
+
+            <div class="form-group" style="max-width:460px;">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" class="form-control" value="john.smith@email.com">
+              <div class="form-hint">You will receive notifications and official correspondence at this address.</div>
+            </div>
+
+            <div class="form-group" style="max-width:460px;">
+              <label for="address">Residential Address</label>
+              <textarea id="address" class="form-control" rows="3">12 Example Street, London, E1 1AA, United Kingdom</textarea>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:4px;">
+              <button class="btn btn-navy" onclick="showSaveSuccess()">Save Changes</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Password & Security -->
+          <div id="section-security" class="settings-section">
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:16px;">Change Password</h3>
+            <div style="max-width:400px;">
+              <div class="form-group">
+                <label for="cur-pwd">Current Password <span class="required">*</span></label>
+                <input type="password" id="cur-pwd" class="form-control" placeholder="Enter current password">
+              </div>
+              <div class="form-group">
+                <label for="new-pwd">New Password <span class="required">*</span></label>
+                <input type="password" id="new-pwd" class="form-control" placeholder="At least 10 characters">
+                <div class="form-hint">Must include uppercase, lowercase, number, and special character.</div>
+              </div>
+              <div class="form-group">
+                <label for="confirm-pwd">Confirm New Password <span class="required">*</span></label>
+                <input type="password" id="confirm-pwd" class="form-control" placeholder="Repeat new password">
+              </div>
+              <button class="btn btn-navy">Update Password</button>
+            </div>
+
+            <hr style="border:none; border-top:1px solid var(--light-grey); margin:28px 0;">
+
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:16px;">Two-Factor Authentication (2FA)</h3>
+            <div class="alert alert-success" style="max-width:500px; margin-bottom:16px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm3.5 5.5-4 4a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47 3.47-3.47a.75.75 0 1 1 1.06 1.06Z"/></svg>
+              <span>Two-factor authentication is <strong>enabled</strong> on your account.</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--dark-grey); margin-bottom:14px;">2FA is currently set to send a verification code to your mobile number <strong>+44 7900 *** 456</strong>.</p>
+            <button class="btn btn-secondary btn-sm">Change 2FA Method</button>
+
+            <hr style="border:none; border-top:1px solid var(--light-grey); margin:28px 0;">
+
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:12px;">Login Sessions</h3>
+            <table class="data-table" style="max-width:600px;">
+              <thead>
+                <tr><th>Device</th><th>Location</th><th>Last Active</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🖥 Chrome / Windows</td>
+                  <td>London, UK</td>
+                  <td>Now (current)</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td>📱 Safari / iPhone</td>
+                  <td>London, UK</td>
+                  <td>2 days ago</td>
+                  <td><button class="btn btn-secondary btn-sm">Revoke</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Notifications -->
+          <div id="section-notifications" class="settings-section">
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:16px;">Email Notifications</h3>
+            <div style="display:flex; flex-direction:column; gap:12px; max-width:500px;">
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                Application status updates
+                <input type="checkbox" checked>
+              </label>
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                Document requests from case officer
+                <input type="checkbox" checked>
+              </label>
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                Payment reminders
+                <input type="checkbox" checked>
+              </label>
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                New messages in inbox
+                <input type="checkbox" checked>
+              </label>
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                System announcements and maintenance notices
+                <input type="checkbox">
+              </label>
+              <label style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--light-bg); border-radius:4px; cursor:pointer; font-size:0.88rem;">
+                Processing time updates for my visa categories
+                <input type="checkbox">
+              </label>
+            </div>
+            <button class="btn btn-navy" style="margin-top:20px;">Save Preferences</button>
+          </div>
+
+          <!-- Linked Accounts -->
+          <div id="section-linked" class="settings-section">
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:16px;">Linked Migration Agent</h3>
+            <div class="alert alert-info" style="max-width:520px; margin-bottom:16px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.75 10.5h-1.5v-5h1.5v5Zm0-6.5h-1.5V3.5h1.5V5Z"/></svg>
+              <span>You do not currently have a registered migration agent linked to your account.</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--dark-grey); margin-bottom:14px; max-width:500px;">If a registered migration agent is assisting you, you can link their details here. They will be able to view and manage your applications on your behalf.</p>
+            <div style="max-width:400px;">
+              <div class="form-group">
+                <label for="marn">Migration Agent Registration Number (MARN)</label>
+                <input type="text" id="marn" class="form-control" placeholder="e.g. 0000000">
+              </div>
+              <button class="btn btn-navy btn-sm">Link Agent</button>
+            </div>
+
+            <hr style="border:none; border-top:1px solid var(--light-grey); margin:28px 0;">
+
+            <h3 style="font-size:1rem; color:var(--navy); margin-bottom:12px;">Close Account</h3>
+            <p style="font-size:0.88rem; color:var(--dark-grey); margin-bottom:14px; max-width:500px;">Closing your account will remove all your data and active applications. This action cannot be undone.</p>
+            <button class="btn btn-secondary btn-sm" style="color:var(--error); border-color:var(--error);">Request Account Closure</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="usafe-logo">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:30px;height:30px;">
+            <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+            <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+            <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+          </svg>
+          <span class="usafe-logo-text"><span class="brand-name" style="font-size:1.1rem;">usafe</span></span>
+        </a>
+        <p>Unified Safe Application For Entry. Secure government immigration portal.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="applications.html">My Applications</a></li>
+          <li><a href="new-application.html">New Application</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Centre</a></li>
+          <li><a href="#">Processing Times</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 usafe – Unified Safe Application For Entry. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function switchSettingsTab(id, el) {
+      document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.settings-section').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('section-' + id).classList.add('active');
+    }
+
+    function showSaveSuccess() {
+      const el = document.getElementById('save-success');
+      el.style.display = 'flex';
+      setTimeout(() => { el.style.display = 'none'; }, 4000);
+    }
+  </script>
+
+</body>
+</html>
