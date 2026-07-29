@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="usafe – Create an Account. Register for the usafe immigration portal.">
+  <title>usafe – Create Account</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: var(--navy); }
+
+    .register-page-header {
+      background: transparent;
+      border-bottom: none;
+    }
+
+    .register-page-header .header-top {
+      padding: 16px 24px;
+      max-width: 1100px;
+    }
+
+    .register-hero {
+      padding: 40px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: calc(100vh - 130px);
+    }
+
+    .register-box {
+      background: var(--white);
+      border-radius: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      width: 100%;
+      max-width: 580px;
+      overflow: hidden;
+    }
+
+    .register-box-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 20px 28px;
+    }
+
+    .register-box-header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .register-box-header p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .register-box-body {
+      padding: 28px;
+    }
+
+    .register-steps {
+      display: flex;
+      gap: 0;
+      margin-bottom: 28px;
+      border-bottom: 2px solid var(--light-grey);
+    }
+
+    .register-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px 13px;
+      font-size: 0.82rem;
+      color: var(--dark-grey);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .register-step.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      font-weight: 600;
+    }
+
+    .register-step .step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--light-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--dark-grey);
+    }
+
+    .register-step.active .step-num {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .register-box-footer {
+      background: #f9f9f9;
+      border-top: 1px solid var(--border);
+      padding: 14px 28px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--dark-grey);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── HEADER ── -->
+  <header class="register-page-header site-header" style="background:transparent; border:none;">
+    <div class="header-top" style="max-width:1100px;">
+      <a href="index.html" class="usafe-logo">
+        <svg class="usafe-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+          <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+          <path d="M22 11 L32 17.5 L32 27 C32 32 22 37 22 37 C22 37 12 32 12 27 L12 17.5 Z" fill="#c8a84b" opacity="0.3"/>
+          <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+        </svg>
+        <span class="usafe-logo-text">
+          <span class="brand-name">usafe</span>
+          <span class="brand-sub">Secure Migration Portal</span>
+        </span>
+      </a>
+      <div style="display:flex; gap:20px; align-items:center;">
+        <a href="#" style="color:rgba(255,255,255,0.75); font-size:0.83rem;">Help &amp; Support</a>
+        <a href="index.html" style="color:rgba(255,255,255,0.75); font-size:0.83rem;">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN ── -->
+  <main id="main" class="register-hero">
+    <div class="register-box">
+
+      <div class="register-box-header">
+        <h1>Create a usafe Account</h1>
+        <p>Register to submit and manage your visa applications online.</p>
+      </div>
+
+      <div class="register-box-body">
+
+        <div class="register-steps">
+          <div class="register-step active">
+            <span class="step-num">1</span> Account Type
+          </div>
+          <div class="register-step">
+            <span class="step-num">2</span> Personal Details
+          </div>
+          <div class="register-step">
+            <span class="step-num">3</span> Security
+          </div>
+          <div class="register-step">
+            <span class="step-num">4</span> Verify
+          </div>
+        </div>
+
+        <h3 style="font-size:0.95rem; color:var(--navy); margin-bottom:16px;">Select Account Type</h3>
+
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
+
+          <label style="border:2px solid var(--blue); border-radius:4px; padding:14px 16px; cursor:pointer; display:flex; gap:14px; align-items:flex-start; background:#eef3fa;">
+            <input type="radio" name="account_type" value="individual" checked style="margin-top:3px; flex-shrink:0;">
+            <div>
+              <strong style="font-size:0.92rem;">Individual Applicant</strong>
+              <p style="font-size:0.82rem; color:var(--dark-grey); margin-top:2px;">You are applying on your own behalf for a visa or travel authority.</p>
+            </div>
+          </label>
+
+          <label style="border:1px solid var(--border); border-radius:4px; padding:14px 16px; cursor:pointer; display:flex; gap:14px; align-items:flex-start;">
+            <input type="radio" name="account_type" value="agent" style="margin-top:3px; flex-shrink:0;">
+            <div>
+              <strong style="font-size:0.92rem;">Migration Agent</strong>
+              <p style="font-size:0.82rem; color:var(--dark-grey); margin-top:2px;">You are a registered migration agent submitting applications on behalf of clients. A valid MARN is required.</p>
+            </div>
+          </label>
+
+          <label style="border:1px solid var(--border); border-radius:4px; padding:14px 16px; cursor:pointer; display:flex; gap:14px; align-items:flex-start;">
+            <input type="radio" name="account_type" value="employer" style="margin-top:3px; flex-shrink:0;">
+            <div>
+              <strong style="font-size:0.92rem;">Employer / Sponsor</strong>
+              <p style="font-size:0.82rem; color:var(--dark-grey); margin-top:2px;">Your business is nominating or sponsoring workers for visa applications.</p>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="alert alert-info" style="font-size:0.82rem;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.75 10.5h-1.5v-5h1.5v5Zm0-6.5h-1.5V3.5h1.5V5Z"/></svg>
+          <span>By creating an account you agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> of the usafe portal.</span>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; margin-top:20px; gap:10px;">
+          <a href="index.html" class="btn btn-secondary">Back to Sign In</a>
+          <button type="button" class="btn btn-navy">Continue →</button>
+        </div>
+
+      </div>
+
+      <div class="register-box-footer">
+        Already have an account? <a href="index.html">Sign in</a>
+        &nbsp;|&nbsp;
+        <a href="#">Need help registering?</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-bottom" style="padding:14px 24px;">
+      &copy; 2025 usafe – Unified Safe Application For Entry. All rights reserved. &nbsp;|&nbsp;
+      <a href="#" style="color:rgba(255,255,255,0.6);">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="#" style="color:rgba(255,255,255,0.6);">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="#" style="color:rgba(255,255,255,0.6);">Accessibility</a>
+    </div>
+  </footer>
+
+</body>
+</html>

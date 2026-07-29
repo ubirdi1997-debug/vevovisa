@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="usafe – Messages. Secure inbox for communicating with case officers.">
+  <title>usafe – Messages</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .message-view-panel {
+      display: flex;
+      gap: 0;
+      height: 600px;
+      overflow: hidden;
+    }
+    .inbox-list {
+      width: 340px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--light-grey);
+      overflow-y: auto;
+    }
+    .message-view {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .msg-thread {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+    .msg-bubble {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .msg-bubble.received {
+      background: #eef3fa;
+      border: 1px solid #d5e3f7;
+      margin-right: auto;
+    }
+    .msg-bubble.sent {
+      background: var(--navy);
+      color: var(--white);
+      margin-left: auto;
+    }
+    .msg-bubble-meta {
+      font-size: 0.75rem;
+      color: var(--dark-grey);
+      margin-bottom: 4px;
+    }
+    .msg-bubble.sent .msg-bubble-meta {
+      color: rgba(255,255,255,0.65);
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="usafe-logo">
+        <svg class="usafe-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+          <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+          <path d="M22 11 L32 17.5 L32 27 C32 32 22 37 22 37 C22 37 12 32 12 27 L12 17.5 Z" fill="#c8a84b" opacity="0.3"/>
+          <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+        </svg>
+        <span class="usafe-logo-text">
+          <span class="brand-name">usafe</span>
+          <span class="brand-sub">Secure Migration Portal</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <span style="color:rgba(255,255,255,0.65); font-size:0.83rem;">Welcome, <strong style="color:#fff;">John Smith</strong></span>
+        <a href="#">Help</a>
+        <a href="index.html" class="btn-logout">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="new-application.html">New Application</a></li>
+        <li><a href="upload-documents.html">Upload Documents</a></li>
+        <li><a href="messages.html" class="active">Messages <span style="background:#c8a84b;color:#00205b;border-radius:10px;padding:1px 7px;font-size:0.72rem;font-weight:700;margin-left:4px;">3</span></a></li>
+        <li><a href="account-settings.html">Account Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-menu">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="dashboard.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><rect x="1" y="1" width="7" height="7" rx="1"/><rect x="10" y="1" width="7" height="7" rx="1"/><rect x="1" y="10" width="7" height="7" rx="1"/><rect x="10" y="10" width="7" height="7" rx="1"/></svg>
+            Dashboard</a></li>
+          <li><a href="applications.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 2h9l3 3v11H3V2zm6 0v4h4"/></svg>
+            My Applications</a></li>
+          <li><a href="new-application.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="9" r="8"/><path d="M9 5v8M5 9h8" stroke="white" stroke-width="1.5"/></svg>
+            New Application</a></li>
+          <li><a href="upload-documents.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 14h12v2H3zM9 2l5 6H11v4H7V8H5z"/></svg>
+            Upload Documents</a></li>
+          <li><a href="messages.html" class="active">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M2 3h14v10l-7 3-7-3V3z"/></svg>
+            Messages</a></li>
+          <li><a href="account-settings.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="7" r="4"/><path d="M1 16c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Account Settings</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-body" style="padding:14px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--navy); margin-bottom:6px;">Secure Messaging</p>
+          <p style="font-size:0.78rem; color:var(--dark-grey); line-height:1.5;">All messages are encrypted and sent directly to your assigned case officer. Response times are typically 5–10 business days.</p>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main-content">
+
+      <div class="breadcrumb">
+        <a href="dashboard.html">Home</a>
+        <span class="sep">›</span>
+        <span class="current">Messages</span>
+      </div>
+
+      <div class="page-title">
+        <h1>Messages</h1>
+        <p>Secure inbox for communicating with your case officer and receiving official notifications.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Inbox (3 unread)</h2>
+          <button class="btn btn-secondary btn-sm" onclick="toggleCompose()">+ New Message</button>
+        </div>
+
+        <!-- Compose panel (hidden by default) -->
+        <div id="compose-panel" style="display:none; border-bottom:1px solid var(--border); padding:20px; background:#f9f9f9;">
+          <h3 style="font-size:0.95rem; margin-bottom:14px; color:var(--navy);">New Message</h3>
+          <div class="form-group">
+            <label for="compose-app">Regarding Application <span class="required">*</span></label>
+            <select id="compose-app" class="form-control" style="max-width:400px;">
+              <option>APP-2025-001847 – Skilled Independent (Subclass 189)</option>
+              <option>APP-2025-001204 – Temp Skill Shortage (Subclass 482)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="compose-subject">Subject <span class="required">*</span></label>
+            <input type="text" id="compose-subject" class="form-control" style="max-width:400px;" placeholder="Enter subject">
+          </div>
+          <div class="form-group">
+            <label for="compose-body">Message <span class="required">*</span></label>
+            <textarea id="compose-body" class="form-control" rows="5" placeholder="Type your message here…" style="resize:vertical;"></textarea>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-navy" type="button">Send Message</button>
+            <button class="btn btn-secondary" type="button" onclick="toggleCompose()">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Message list + view panel -->
+        <div class="message-view-panel">
+
+          <!-- Inbox list -->
+          <div class="inbox-list">
+            <div class="message-item unread" onclick="showMessage(1)" style="cursor:pointer;">
+              <div class="message-avatar">DO</div>
+              <div class="message-content">
+                <div class="msg-from">Department Officer</div>
+                <div class="msg-subject">Additional Documents Requested</div>
+                <div class="msg-preview">Please provide employment contract…</div>
+              </div>
+              <div class="message-meta">
+                <div class="msg-date">Today</div>
+                <div class="unread-dot"></div>
+              </div>
+            </div>
+
+            <div class="message-item unread" onclick="showMessage(2)" style="cursor:pointer;">
+              <div class="message-avatar" style="background:#c8a84b; color:#00205b;">SY</div>
+              <div class="message-content">
+                <div class="msg-from">System Notification</div>
+                <div class="msg-subject">Payment Reminder – APP-2025-001204</div>
+                <div class="msg-preview">Your application fee of $4,115 AUD is due…</div>
+              </div>
+              <div class="message-meta">
+                <div class="msg-date">Yesterday</div>
+                <div class="unread-dot"></div>
+              </div>
+            </div>
+
+            <div class="message-item unread" onclick="showMessage(3)" style="cursor:pointer;">
+              <div class="message-avatar">DO</div>
+              <div class="message-content">
+                <div class="msg-from">Department Officer</div>
+                <div class="msg-subject">Health Examination Scheduled</div>
+                <div class="msg-preview">You must attend an approved health panel physician…</div>
+              </div>
+              <div class="message-meta">
+                <div class="msg-date">25 Jul</div>
+                <div class="unread-dot"></div>
+              </div>
+            </div>
+
+            <div class="message-item" onclick="showMessage(4)" style="cursor:pointer;">
+              <div class="message-avatar">DO</div>
+              <div class="message-content">
+                <div class="msg-from">Department Officer</div>
+                <div class="msg-subject">APP-2024-009561 – Visa Granted</div>
+                <div class="msg-preview">We are pleased to inform you that your Visitor Visa…</div>
+              </div>
+              <div class="message-meta">
+                <div class="msg-date">5 Dec</div>
+              </div>
+            </div>
+
+            <div class="message-item" onclick="showMessage(5)" style="cursor:pointer;">
+              <div class="message-avatar" style="background:#c8a84b; color:#00205b;">SY</div>
+              <div class="message-content">
+                <div class="msg-from">System Notification</div>
+                <div class="msg-subject">Account Verification Successful</div>
+                <div class="msg-preview">Your usafe account has been verified and activated…</div>
+              </div>
+              <div class="message-meta">
+                <div class="msg-date">1 Dec</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message detail view -->
+          <div class="message-view" id="message-view">
+            <div id="msg-placeholder" style="text-align:center; padding:60px 20px; color:var(--dark-grey);">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#ccc" stroke-width="2" style="display:block; margin:0 auto 16px;">
+                <rect x="4" y="8" width="40" height="32" rx="3"/>
+                <path d="M4 14 L24 27 L44 14"/>
+              </svg>
+              <p>Select a message to read it.</p>
+            </div>
+
+            <div id="msg-1" style="display:none;">
+              <div style="border-bottom:1px solid var(--light-grey); padding-bottom:14px; margin-bottom:20px;">
+                <h3 style="font-size:1.05rem; color:var(--navy);">Re: APP-2025-001847 – Additional Documents Requested</h3>
+                <p style="font-size:0.82rem; color:var(--dark-grey); margin-top:4px;">From: <strong>Case Officer (CO-4451)</strong> | To: John Smith | Date: 29 Jul 2025</p>
+              </div>
+              <div class="msg-thread">
+                <div class="msg-bubble received">
+                  <div class="msg-bubble-meta">Case Officer (CO-4451) – 29 Jul 2025, 10:14 AM</div>
+                  Dear Mr Smith,<br><br>
+                  Thank you for submitting your Skilled Independent Visa application (APP-2025-001847).<br><br>
+                  Upon reviewing your application, we require the following additional document:<br><br>
+                  <strong>Employment Contract</strong> – Please provide a certified and signed copy of your current employment contract dated within the last 6 months.<br><br>
+                  Please upload this document via the <a href="upload-documents.html">Upload Documents</a> section of your account within <strong>14 days</strong>. Failure to provide the requested documents may result in delays or refusal of your application.<br><br>
+                  If you have any questions, please reply to this message.<br><br>
+                  Regards,<br>
+                  Case Officer CO-4451<br>
+                  usafe – Department of Entry Management
+                </div>
+              </div>
+              <div style="margin-top:20px; border-top:1px solid var(--light-grey); padding-top:16px;">
+                <h4 style="font-size:0.88rem; margin-bottom:10px; color:var(--navy);">Reply</h4>
+                <textarea class="form-control" rows="4" placeholder="Write your reply here…" style="margin-bottom:10px; resize:vertical;"></textarea>
+                <button class="btn btn-navy btn-sm">Send Reply</button>
+              </div>
+            </div>
+
+            <div id="msg-2" style="display:none;">
+              <div style="border-bottom:1px solid var(--light-grey); padding-bottom:14px; margin-bottom:20px;">
+                <h3 style="font-size:1.05rem; color:var(--navy);">Payment Reminder – APP-2025-001204</h3>
+                <p style="font-size:0.82rem; color:var(--dark-grey); margin-top:4px;">From: <strong>usafe System</strong> | To: John Smith | Date: 28 Jul 2025</p>
+              </div>
+              <div class="msg-thread">
+                <div class="msg-bubble received">
+                  <div class="msg-bubble-meta">usafe System – 28 Jul 2025, 08:00 AM</div>
+                  Dear John Smith,<br><br>
+                  This is a reminder that your visa application fee for <strong>APP-2025-001204</strong> (Temporary Skill Shortage Visa, Subclass 482) is outstanding.<br><br>
+                  <strong>Amount due:</strong> $4,115.00 AUD<br>
+                  <strong>Due date:</strong> 4 August 2025<br><br>
+                  Please <a href="applications.html">log in and make payment</a> before the due date to avoid your application being automatically withdrawn.<br><br>
+                  This is an automated notification. Please do not reply to this message.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="usafe-logo">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:30px;height:30px;">
+            <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+            <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+            <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+          </svg>
+          <span class="usafe-logo-text"><span class="brand-name" style="font-size:1.1rem;">usafe</span></span>
+        </a>
+        <p>Unified Safe Application For Entry. Secure government immigration portal.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="applications.html">My Applications</a></li>
+          <li><a href="new-application.html">New Application</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Centre</a></li>
+          <li><a href="#">Processing Times</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 usafe – Unified Safe Application For Entry. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function toggleCompose() {
+      const panel = document.getElementById('compose-panel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function showMessage(id) {
+      // hide all message views and placeholder
+      document.getElementById('msg-placeholder').style.display = 'none';
+      [1,2,3,4,5].forEach(i => {
+        const el = document.getElementById('msg-' + i);
+        if (el) el.style.display = 'none';
+      });
+      // mark clicked item as read
+      document.querySelectorAll('.message-item').forEach((item, idx) => {
+        if (idx === id - 1) {
+          item.classList.remove('unread');
+          const dot = item.querySelector('.unread-dot');
+          if (dot) dot.remove();
+        }
+      });
+      // show selected message
+      const target = document.getElementById('msg-' + id);
+      if (target) {
+        target.style.display = 'block';
+      } else {
+        document.getElementById('msg-placeholder').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
