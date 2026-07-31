@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="usafe – Upload Documents. Submit supporting documents for your application.">
+  <title>usafe – Upload Documents</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="usafe-logo">
+        <svg class="usafe-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+          <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+          <path d="M22 11 L32 17.5 L32 27 C32 32 22 37 22 37 C22 37 12 32 12 27 L12 17.5 Z" fill="#c8a84b" opacity="0.3"/>
+          <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+        </svg>
+        <span class="usafe-logo-text">
+          <span class="brand-name">usafe</span>
+          <span class="brand-sub">Secure Migration Portal</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <span style="color:rgba(255,255,255,0.65); font-size:0.83rem;">Welcome, <strong style="color:#fff;">John Smith</strong></span>
+        <a href="#">Help</a>
+        <a href="index.html" class="btn-logout">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="new-application.html">New Application</a></li>
+        <li><a href="upload-documents.html" class="active">Upload Documents</a></li>
+        <li><a href="messages.html">Messages <span style="background:#c8a84b;color:#00205b;border-radius:10px;padding:1px 7px;font-size:0.72rem;font-weight:700;margin-left:4px;">3</span></a></li>
+        <li><a href="account-settings.html">Account Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-menu">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="dashboard.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><rect x="1" y="1" width="7" height="7" rx="1"/><rect x="10" y="1" width="7" height="7" rx="1"/><rect x="1" y="10" width="7" height="7" rx="1"/><rect x="10" y="10" width="7" height="7" rx="1"/></svg>
+            Dashboard</a></li>
+          <li><a href="applications.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 2h9l3 3v11H3V2zm6 0v4h4"/></svg>
+            My Applications</a></li>
+          <li><a href="new-application.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="9" r="8"/><path d="M9 5v8M5 9h8" stroke="white" stroke-width="1.5"/></svg>
+            New Application</a></li>
+          <li><a href="upload-documents.html" class="active">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M3 14h12v2H3zM9 2l5 6H11v4H7V8H5z"/></svg>
+            Upload Documents</a></li>
+          <li><a href="messages.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><path d="M2 3h14v10l-7 3-7-3V3z"/></svg>
+            Messages</a></li>
+          <li><a href="account-settings.html">
+            <svg class="menu-icon" viewBox="0 0 18 18" fill="currentColor"><circle cx="9" cy="7" r="4"/><path d="M1 16c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Account Settings</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-body" style="padding:14px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--navy); margin-bottom:6px;">Accepted Formats</p>
+          <ul style="font-size:0.8rem; color:var(--dark-grey); line-height:1.8; padding-left:16px; list-style:disc;">
+            <li>PDF, JPG, PNG, GIF</li>
+            <li>Max file size: 5 MB per file</li>
+            <li>Max total upload: 50 MB</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main-content">
+
+      <div class="breadcrumb">
+        <a href="dashboard.html">Home</a>
+        <span class="sep">›</span>
+        <a href="applications.html">My Applications</a>
+        <span class="sep">›</span>
+        <span class="current">Upload Documents</span>
+      </div>
+
+      <div class="page-title">
+        <h1>Upload Documents</h1>
+        <p>Upload supporting documents for your visa applications. All documents are stored securely.</p>
+      </div>
+
+      <!-- Select application -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Select Application</h2>
+        </div>
+        <div class="card-body">
+          <div class="form-group" style="max-width:500px; margin-bottom:0;">
+            <label for="app-select">Application Reference <span class="required">*</span></label>
+            <select id="app-select" class="form-control">
+              <option value="">— Choose an application —</option>
+              <option value="001847" selected>APP-2025-001847 – Skilled Independent (Subclass 189)</option>
+              <option value="001204">APP-2025-001204 – Temp Skill Shortage (Subclass 482)</option>
+              <option value="009561">APP-2024-009561 – Visitor Visa (Subclass 600)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outstanding requirements -->
+      <div class="alert alert-warning">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;margin-top:1px;"><path d="M8 1 L15 14 H1 Z M8 6v4M8 11h.01" stroke="currentColor" stroke-width="1.2"/></svg>
+        <div>
+          <strong>Action required for APP-2025-001847:</strong> Your case officer has requested an updated Employment Contract. Please upload this document within <strong>14 days</strong>.
+        </div>
+      </div>
+
+      <!-- Document type selection -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Select Document Type</h2>
+        </div>
+        <div class="card-body">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:0;">
+
+            <label style="border:2px solid var(--blue); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start; background:#eef3fa;">
+              <input type="radio" name="doc_type" value="employment" checked style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">Employment Contract</strong><br>
+                <small style="color:var(--dark-grey);">Current and signed copy</small>
+              </div>
+            </label>
+
+            <label style="border:1px solid var(--border); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start;">
+              <input type="radio" name="doc_type" value="passport" style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">Passport</strong><br>
+                <small style="color:var(--dark-grey);">Bio-data page</small>
+              </div>
+            </label>
+
+            <label style="border:1px solid var(--border); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start;">
+              <input type="radio" name="doc_type" value="skills" style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">Skills Assessment</strong><br>
+                <small style="color:var(--dark-grey);">Issued by assessing authority</small>
+              </div>
+            </label>
+
+            <label style="border:1px solid var(--border); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start;">
+              <input type="radio" name="doc_type" value="english" style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">English Test Results</strong><br>
+                <small style="color:var(--dark-grey);">IELTS, PTE, TOEFL, OET</small>
+              </div>
+            </label>
+
+            <label style="border:1px solid var(--border); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start;">
+              <input type="radio" name="doc_type" value="health" style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">Health Examination</strong><br>
+                <small style="color:var(--dark-grey);">Medical report from approved physician</small>
+              </div>
+            </label>
+
+            <label style="border:1px solid var(--border); border-radius:4px; padding:12px; cursor:pointer; display:flex; gap:10px; align-items:flex-start;">
+              <input type="radio" name="doc_type" value="other" style="margin-top:2px;">
+              <div>
+                <strong style="font-size:0.88rem;">Other Document</strong><br>
+                <small style="color:var(--dark-grey);">Any other supporting evidence</small>
+              </div>
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload zone -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Upload File(s)</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+            <svg class="upload-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="2">
+              <path d="M32 32 L24 24 L16 32"/>
+              <path d="M24 24 V44"/>
+              <path d="M40.9 36.5A11 11 0 1 0 30 14a1 1 0 0 1-.95-.67A15 15 0 1 0 8.5 29.5" stroke-linecap="round"/>
+            </svg>
+            <p><span class="browse-link">Click to browse</span> or drag and drop files here</p>
+            <p style="font-size:0.78rem; color:#aaa; margin-top:4px;">PDF, JPG, PNG, GIF – Max 5 MB per file</p>
+            <input type="file" id="file-input" style="display:none;" multiple accept=".pdf,.jpg,.jpeg,.png,.gif" onchange="handleFiles(this.files)">
+          </div>
+
+          <div class="uploaded-files" id="file-list"></div>
+
+          <div style="margin-top:20px; display:flex; justify-content:flex-end; gap:10px;">
+            <button class="btn btn-secondary" type="button">Cancel</button>
+            <button class="btn btn-navy" type="button" onclick="submitUpload()">Upload Documents</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previously uploaded documents -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Previously Uploaded Documents – APP-2025-001847</h2>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Document Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Uploaded</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>📄 passport_biopage.pdf</td>
+                <td>Passport</td>
+                <td>1.2 MB</td>
+                <td>12 Jan 2025</td>
+                <td><span class="badge badge-approved">Accepted</span></td>
+                <td><a href="#" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr>
+                <td>📄 skills_assessment_result.pdf</td>
+                <td>Skills Assessment</td>
+                <td>800 KB</td>
+                <td>12 Jan 2025</td>
+                <td><span class="badge badge-approved">Accepted</span></td>
+                <td><a href="#" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr>
+                <td>📄 ielts_results_2024.pdf</td>
+                <td>English Test</td>
+                <td>400 KB</td>
+                <td>12 Jan 2025</td>
+                <td><span class="badge badge-approved">Accepted</span></td>
+                <td><a href="#" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="usafe-logo">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:30px;height:30px;">
+            <rect width="44" height="44" rx="6" fill="#c8a84b"/>
+            <path d="M22 6 L36 14 L36 26 C36 33 22 40 22 40 C22 40 8 33 8 26 L8 14 Z" fill="#00205b"/>
+            <text x="22" y="27" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">US</text>
+          </svg>
+          <span class="usafe-logo-text"><span class="brand-name" style="font-size:1.1rem;">usafe</span></span>
+        </a>
+        <p>Unified Safe Application For Entry. Secure government immigration portal.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="applications.html">My Applications</a></li>
+          <li><a href="new-application.html">New Application</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Centre</a></li>
+          <li><a href="#">Processing Times</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 usafe – Unified Safe Application For Entry. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Drag and drop
+    const dropZone = document.getElementById('drop-zone');
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+      const list = document.getElementById('file-list');
+      Array.from(files).forEach(file => {
+        const item = document.createElement('div');
+        item.className = 'file-item';
+        item.innerHTML = `
+          <span>📄</span>
+          <span class="file-name">${file.name}</span>
+          <span class="file-size">${(file.size / 1024).toFixed(0)} KB</span>
+          <span class="file-remove" onclick="this.parentElement.remove()">✕ Remove</span>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function submitUpload() {
+      const items = document.querySelectorAll('.file-item');
+      if (items.length === 0) {
+        alert('Please select at least one file to upload.');
+        return;
+      }
+      alert('Documents uploaded successfully. Your case officer will review them within 5–10 business days.');
+      document.getElementById('file-list').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
